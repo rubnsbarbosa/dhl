@@ -7,7 +7,13 @@ import (
 )
 
 func main() {
-	trackerNumber := flag.String("tracking", "RR080368026DE", "tracking shipment status")
+	apiKey := os.Getenv("API_KEY")
+	if apiKey == "" {
+		fmt.Println("Error: API_KEY environment variable is empty.")
+		return
+	}
+
+	trackerNumber := flag.String("tracking", "RR000000001DE", "tracking shipment status")
 
 	flag.Parse()
 
@@ -19,9 +25,8 @@ func main() {
 		fmt.Println(" /_____/ /_/ /_/  /_____/                       ")
 		fmt.Println(" ~ DHL Tracker CLI 1.0 ~                        ")
 		fmt.Println("                                                ")
-		fmt.Println("Starting to track your shipment:", *trackerNumber)
 
-		GetTrackingShipment(trackerNumber)
+		GetTrackingShipment(apiKey, trackerNumber)
 
 	} else {
 		fmt.Println(" ______________  _______                          ")
@@ -36,7 +41,7 @@ func main() {
 		fmt.Println("The tracking number is mandatory!                 ")
 		fmt.Println("                                                  ")
 		fmt.Println("Here is an example on how to use the DHL CLI:     ")
-		fmt.Println("./DHL -tracking RR000000001DE                     ")
+		fmt.Println("docker run dhl -tracking RR000000001DE            ")
 		fmt.Println("Error: only 1 tracking number per run is expected.")
 		os.Exit(1)
 	}
