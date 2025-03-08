@@ -18,13 +18,13 @@ func main() {
 	flag.Parse()
 
 	if len(flag.Args()) == 0 {
-		fmt.Println(" ______________  _______                        ")
-		fmt.Println(" ___  __ \\__  / / /__  /                       ")
-		fmt.Println(" __  / / /_  /_/ /__  /                         ")
-		fmt.Println(" _  /_/ /_  __  / _  /___                       ")
-		fmt.Println(" /_____/ /_/ /_/  /_____/                       ")
-		fmt.Println(" ~ DHL Tracker CLI 1.0 ~                        ")
-		fmt.Println("                                                ")
+		fmt.Println(" ______________  _______                          ")
+		fmt.Println(" ___  __ \\__  / / /__  /                         ")
+		fmt.Println(" __  / / /_  /_/ /__  /                           ")
+		fmt.Println(" _  /_/ /_  __  / _  /___                         ")
+		fmt.Println(" /_____/ /_/ /_/  /_____/                         ")
+		fmt.Println(" ~ DHL Tracker CLI 1.0 ~                          ")
+		fmt.Println("                                                  ")
 
 		GetTrackingShipment(apiKey, trackerNumber)
 
